@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_payment_app/component/colors.dart';
+import 'package:flutter_payment_app/widgets/text_size.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -108,6 +109,119 @@ class _HomePageState extends State<HomePage> {
               spreadRadius: 10,
             ),
           ],
+        ),
+        child: Container(
+          margin: EdgeInsets.only(top: 10, left: 18, bottom: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        height: 60,
+                        width: 60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(width: 3, color: Colors.grey),
+                          image: DecorationImage(
+                              image: AssetImage("images/brand1.png"),
+                              fit: BoxFit.cover),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "KenGen Power",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: AppColor.mainColor,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            "ID:903123",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: AppColor.idColor,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedText(
+                    text: "Auto pay on 24th May 18",
+                    color: AppColor.green,
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 80,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: AppColor.selectBackground,
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Select",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: AppColor.selectColor,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(child: Container()),
+                      Text(
+                        "\$1248.00",
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: AppColor.mainColor,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                      Text(
+                        "Due in 3 days",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: AppColor.idColor,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    width: 5,
+                    height: 45,
+                    decoration: BoxDecoration(
+                      color: AppColor.halfOval,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        bottomLeft: Radius.circular(30),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
