@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_payment_app/component/colors.dart';
+import 'package:flutter_payment_app/widgets/large_buttons.dart';
 import 'package:flutter_payment_app/widgets/text_size.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,7 +20,20 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: AppColor.backGroundColor,
       body: Container(
         height: height,
-        child: Stack(children: [_headSection(), _listBills()]),
+        child: Stack(
+          children: [_headSection(), _listBills(), _payButton()],
+        ),
+      ),
+    );
+  }
+
+  _payButton() {
+    return Positioned(
+      bottom: 20,
+      child: AppLargeButton(
+        text: "Pay all bills",
+        textColor: Colors.white,
+        backgroundColor: AppColor.mainColor,
       ),
     );
   }
@@ -39,20 +53,47 @@ class _HomePageState extends State<HomePage> {
     return Positioned(
       bottom: 10,
       right: 50,
-      child: Container(
-        height: 60,
-        width: 60,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("images/lines.png"),
-          ),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 15,
-              offset: Offset(0, 1),
-              color: Color(0xFF11324d).withOpacity(0.2),
+      child: GestureDetector(
+        onTap: () {
+          showModalBottomSheet<dynamic>(
+            context: context,
+            isScrollControlled: true,
+            barrierColor: Colors.transparent,
+            backgroundColor: Colors.transparent,
+            builder: (BuildContext bc) {
+              return Container(
+                height: MediaQuery.of(context).size.height - 240,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      bottom: 0,
+                      child: Container(
+                        color: Color(0xFFEEF1F4).withOpacity(0.7),
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height - 300,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+        },
+        child: Container(
+          height: 60,
+          width: 60,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/lines.png"),
             ),
-          ],
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 15,
+                offset: Offset(0, 1),
+                color: Color(0xFF11324d).withOpacity(0.2),
+              ),
+            ],
+          ),
         ),
       ),
     );
