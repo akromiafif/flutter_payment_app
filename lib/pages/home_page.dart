@@ -22,7 +22,12 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         height: height,
         child: Stack(
-          children: [_headSection(), _listBills(), _payButton()],
+          children: [
+            _headSection(),
+            _listBills(),
+            _payButton(),
+            _textContainer(),
+          ],
         ),
       ),
     );
@@ -45,8 +50,36 @@ class _HomePageState extends State<HomePage> {
       child: Stack(children: [
         _mainBackground(),
         _curveImageContainer(),
-        _buttonContainer()
+        _buttonContainer(),
       ]),
+    );
+  }
+
+  _textContainer() {
+    return Stack(
+      children: [
+        Positioned(
+          left: 0,
+          top: 110,
+          child: Text(
+            "My Bills",
+            style: TextStyle(
+              fontSize: 70,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF293952),
+            ),
+          ),
+        ),
+        Positioned(
+          left: 40,
+          top: 80,
+          child: Text(
+            "My Bills",
+            style: TextStyle(
+                fontSize: 50, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+        )
+      ],
     );
   }
 
