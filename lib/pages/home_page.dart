@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_payment_app/component/colors.dart';
+import 'package:flutter_payment_app/widgets/buttons.dart';
 import 'package:flutter_payment_app/widgets/large_buttons.dart';
 import 'package:flutter_payment_app/widgets/text_size.dart';
 
@@ -73,6 +74,52 @@ class _HomePageState extends State<HomePage> {
                         height: MediaQuery.of(context).size.height - 300,
                       ),
                     ),
+                    Positioned(
+                      right: 50,
+                      child: Container(
+                        padding: EdgeInsets.only(top: 10, bottom: 10),
+                        width: 60,
+                        height: 250,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(29),
+                          color: AppColor.mainColor,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            AppButtons(
+                              icon: Icons.cancel,
+                              iconColor: AppColor.mainColor,
+                              textColor: Colors.white,
+                              backgroundColor: Colors.white,
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                            ),
+                            AppButtons(
+                              icon: Icons.add,
+                              iconColor: AppColor.mainColor,
+                              textColor: Colors.white,
+                              backgroundColor: Colors.white,
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              text: "Add Bills",
+                            ),
+                            AppButtons(
+                              icon: Icons.history,
+                              iconColor: AppColor.mainColor,
+                              textColor: Colors.white,
+                              backgroundColor: Colors.white,
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              text: "History",
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
                   ],
                 ),
               );
